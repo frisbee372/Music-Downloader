@@ -1,4 +1,4 @@
-# Downloader Lagu 🎵🚀
+# Spotify Music Downloader 🎵🚀
 
 Selamat datang di **Downloader Lagu** – aplikasi web berbasis Python yang memungkinkan kamu untuk mendownload lagu dari YouTube dengan kualitas tinggi (AAC 320 kbps) dan mencari lagu berdasarkan link Spotify!  
 Dibangun dengan [Flask](https://flask.palletsprojects.com/) dan didukung oleh [yt-dlp](https://github.com/yt-dlp/yt-dlp) serta [Spotipy](https://spotipy.readthedocs.io/en/2.19.0/).
@@ -14,10 +14,10 @@ Dibangun dengan [Flask](https://flask.palletsprojects.com/) dan didukung oleh [y
   🔍 Mengambil informasi lagu (judul & artis) dari link Spotify menggunakan API Spotify via `Spotipy`.
 
 - **Antarmuka Web Modern**  
-  💻 Dibangun dengan Flask, dilengkapi dengan tampilan bergaya Material Design & efek frosted glass.
+  🖥️ Dibangun dengan Flask, dilengkapi dengan tampilan bergaya Material Design & efek frosted glass.
 
 - **Notifikasi, Progress Bar & Alert**  
-  🔔 Menampilkan alert (flash messages) dan progress bar (simulasi) untuk memberi feedback saat proses download & converting.
+  📢 Menampilkan alert (flash messages) dan progress bar (simulasi) untuk memberi feedback saat proses download & converting.
 
 ---
 
@@ -31,53 +31,53 @@ Dibangun dengan [Flask](https://flask.palletsprojects.com/) dan didukung oleh [y
 
 ---
 
-## Instalasi 📥
+## Instalasi 👅
 
-```plaintext
-+--------------------------------------------------------------+
-|                  **DOWNLOAD & SETUP**                        |
-+--------------------------------------------------------------+
-| 1. Clone Repository                                          |
-|    $ git clone https://github.com/username/repository.git    |
-+--------------------------------------------------------------+
-| 2. Create Virtual Environment                                |
-|    $ python3 -m venv venv                                    |
-+--------------------------------------------------------------+
-| 3. Activate Virtual Environment                              |
-|    $ source venv/bin/activate                                |
-+--------------------------------------------------------------+
-| 4. Install Dependencies                                      |
-|    $ pip install -r requirements.txt                        |
-+--------------------------------------------------------------+
-| 5. Set Environment Variables                                 |
-|    $ export SPOTIPY_CLIENT_ID='your_spotify_client_id'        |
-|    $ export SPOTIPY_CLIENT_SECRET='your_spotify_client_secret'|
-+--------------------------------------------------------------+
-| 6. Install FFmpeg (macOS: Homebrew)                            |
-|    $ brew install ffmpeg                                     |
-+--------------------------------------------------------------+
-| 7. Run the Application                                       |
-|    $ python run.py                                           |
-+--------------------------------------------------------------+
+```bash
+# Clone Repository
+$ git clone https://github.com/username/repository.git
 
-## Penggunaan 🚀
+# Buat Virtual Environment
+$ python3 -m venv venv
 
-+--------------------------------------------------------------+
-|               **PENGGUNAAN APLIKASI**                        |
-+--------------------------------------------------------------+
-| 1. Jalankan Aplikasi:                                        |
-|    $ python run.py                                           |
-+--------------------------------------------------------------+
-| 2. Buka Browser:                                             |
-|    Kunjungi: http://127.0.0.1:5000                           |
-+--------------------------------------------------------------+
-| 3. Masukkan Link Spotify:                                    |
-|    Tempelkan URL lagu dari Spotify di form yang tersedia     |
-+--------------------------------------------------------------+
-| 4. Download & Konversi:                                      |
-|    Klik tombol "Download" dan perhatikan progress bar         |
-|    (alert akan muncul untuk status download & konversi)       |
-+--------------------------------------------------------------+
+# Aktifkan Virtual Environment
+$ source venv/bin/activate  # Untuk macOS/Linux
+$ venv\Scripts\activate     # Untuk Windows
 
-Lisensi 📄
+# Install Dependencies
+$ pip install -r requirements.txt
+
+# Set Environment Variables
+$ export SPOTIPY_CLIENT_ID='your_spotify_client_id'
+$ export SPOTIPY_CLIENT_SECRET='your_spotify_client_secret'
+
+# Install FFmpeg (macOS: Homebrew)
+$ brew install ffmpeg  # Untuk macOS/Linux
+$ sudo apt install ffmpeg  # Untuk Ubuntu/Debian
+$ choco install ffmpeg  # Untuk Windows
+
+# Jalankan Aplikasi
+$ python run.py
+```
+
+---
+
+## Penggunaan Aplikasi 💪
+
+1. Jalankan Aplikasi:
+   ```bash
+   $ python run.py
+   ```
+2. Buka Browser:
+   - Kunjungi: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+3. Masukkan Link Spotify:
+   - Tempelkan URL lagu dari Spotify di form yang tersedia
+4. Download & Konversi:
+   - Klik tombol **"Download"** dan perhatikan progress bar
+   - Notifikasi akan muncul untuk status download & konversi
+
+---
+
+## Lisensi 📝
+
 Proyek ini dilisensikan di bawah MIT License.
