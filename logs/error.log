@@ -289,3 +289,7 @@
 2025-02-09 16:24:48,076 ERROR: Error di /download: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in /Users/rivaldi/Documents/Music Downloader/app/routes.py:41]
 2025-02-09 16:24:48,077 INFO: 127.0.0.1 - - [09/Feb/2025 16:24:48] "[32mPOST /download HTTP/1.1[0m" 302 - [in /Users/rivaldi/Documents/Music Downloader/venv/lib/python3.13/site-packages/werkzeug/_internal.py:97]
 2025-02-09 16:24:48,093 INFO: 127.0.0.1 - - [09/Feb/2025 16:24:48] "GET / HTTP/1.1" 200 - [in /Users/rivaldi/Documents/Music Downloader/venv/lib/python3.13/site-packages/werkzeug/_internal.py:97]
+2025-02-09 16:29:57,676 INFO: 127.0.0.1 - - [09/Feb/2025 16:29:57] "GET / HTTP/1.1" 200 - [in /Users/rivaldi/Documents/Music Downloader/venv/lib/python3.13/site-packages/werkzeug/_internal.py:97]
+2025-02-09 16:30:30,183 ERROR: Error di /download: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in /Users/rivaldi/Documents/Music Downloader/app/routes.py:41]
+2025-02-09 16:30:30,194 INFO: 127.0.0.1 - - [09/Feb/2025 16:30:30] "[32mPOST /download HTTP/1.1[0m" 302 - [in /Users/rivaldi/Documents/Music Downloader/venv/lib/python3.13/site-packages/werkzeug/_internal.py:97]
+2025-02-09 16:30:30,212 INFO: 127.0.0.1 - - [09/Feb/2025 16:30:30] "GET / HTTP/1.1" 200 - [in /Users/rivaldi/Documents/Music Downloader/venv/lib/python3.13/site-packages/werkzeug/_internal.py:97]

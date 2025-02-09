@@ -103,6 +103,21 @@
       color: #388e3c;
       background-color: #c8e6c9;
     }
+    /* Styling untuk progress bar */
+    .progress-container {
+      width: 100%;
+      background-color: #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 1rem;
+      display: none; /* Tersembunyi secara default, tampil saat proses download */
+    }
+    .progress-bar {
+      width: 0%;
+      height: 20px;
+      background-color: #6200ea;
+      transition: width 0.4s ease;
+    }
   </style>
 </head>
 <body>
@@ -122,16 +137,22 @@
       {% endif %}
     {% endwith %}
     
-    <form action="{{ url_for('main.download') }}" method="post">
+    <form id="downloadForm" action="{{ url_for('main.download') }}" method="post">
       <label for="spotify_url">Masukkan link Spotify:</label>
       <input type="text" name="spotify_url" id="spotify_url" placeholder="https://open.spotify.com/track/..." required>
       <button type="submit">Download</button>
     </form>
+    
+    <!-- Progress bar -->
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
   </div>
   
-  <!-- Script untuk menampilkan alert berdasarkan flash messages -->
+  <!-- Script untuk menampilkan alert berdasarkan flash messages dan progress bar -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      // Menampilkan flash messages melalui alert
       var flashMessages = [];
       {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -143,6 +164,28 @@
       
       flashMessages.forEach(function(msg) {
         alert(msg);
+      });
+      
+      // Simulasi progress bar saat form dikirim
+      var downloadForm = document.getElementById("downloadForm");
+      var progressContainer = document.getElementById("progressContainer");
+      var progressBar = document.getElementById("progressBar");
+      
+      downloadForm.addEventListener("submit", function(e) {
+        // Tampilkan progress bar
+        progressContainer.style.display = "block";
+        progressBar.style.width = "0%";
+        
+        // Simulasi progress bar (ganti dengan logika nyata jika menggunakan AJAX/WebSocket)
+        var progress = 0;
+        var interval = setInterval(function() {
+          progress += 10;
+          if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+          }
+          progressBar.style.width = progress + "%";
+        }, 500); // Update setiap 500ms
       });
     });
   </script>
