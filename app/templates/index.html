@@ -1,0 +1,150 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Downloader Lagu</title>
+  <!-- Menggunakan Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset dasar */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    /* Gaya dasar untuk body dengan background image */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://source.unsplash.com/1600x900/?nature,water') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    /* Logo */
+    .logo {
+      margin-bottom: 2rem;
+    }
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+    /* Kontainer utama dengan efek frosted glass */
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative;
+    }
+    /* Styling untuk form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    label {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    input[type="text"] {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+      background: rgba(255, 255, 255, 0.8);
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #6200ea;
+    }
+    button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #48b82c;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #ffcc26;
+    }
+    /* Styling untuk pesan flash (jika ingin tetap tampil di halaman) */
+    .flash-messages {
+      list-style: none;
+      margin: 1rem 0;
+      padding: 0;
+    }
+    .flash-messages li {
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .flash-messages li.error {
+      color: #d32f2f;
+      background-color: #ffcdd2;
+    }
+    .flash-messages li.success {
+      color: #388e3c;
+      background-color: #c8e6c9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo menggunakan gambar dari link yang diberikan -->
+  <div class="logo">
+    <img src="https://img.icons8.com/?size=100&id=6708&format=png&color=000000" alt="Downloader Lagu Logo">
+  </div>
+  <div class="container">
+    <!-- Menampilkan pesan flash di halaman (opsional) -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    <form action="{{ url_for('main.download') }}" method="post">
+      <label for="spotify_url">Masukkan link Spotify:</label>
+      <input type="text" name="spotify_url" id="spotify_url" placeholder="https://open.spotify.com/track/..." required>
+      <button type="submit">Download</button>
+    </form>
+  </div>
+  
+  <!-- Script untuk menampilkan alert berdasarkan flash messages -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var flashMessages = [];
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            flashMessages.push({{ category|tojson|safe }} + ": " + {{ message|tojson|safe }});
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      
+      flashMessages.forEach(function(msg) {
+        alert(msg);
+      });
+    });
+  </script>
+</body>
+</html>

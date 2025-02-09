@@ -1,0 +1,29 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Downloader Lagu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Downloader Lagu</h1>
+    
+    <!-- Menampilkan pesan flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    <form action="{{ url_for('main.download') }}" method="post">
+        <label for="spotify_url">Masukkan link Spotify:</label>
+        <input type="text" name="spotify_url" id="spotify_url" required>
+        <button type="submit">Download</button>
+    </form>
+</body>
+</html>
